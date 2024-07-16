@@ -11,13 +11,13 @@ def suncolor(teff):
     if teff < 3500:
         return 'red'
 
-    if teff >= 3500 & teff < 5000:
+    if (teff >= 3500) and (teff < 5000):
         return 'orange'
     
-    if teff >= 5000 & teff < 8000:
+    if (teff >= 5000) and (teff < 8000):
         return 'yellow'
     
-    if teff >= 8000 & teff < 15000:
+    if (teff >= 8000) and (teff < 15000):
         return 'white'
     
     if teff >= 15000:
