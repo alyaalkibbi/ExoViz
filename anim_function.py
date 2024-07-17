@@ -7,6 +7,22 @@ def ellipse(phi,a,e):
     b = np.sqrt(1-e**2) * a 
     return np.array([a*np.cos(phi), b*np.sin(phi)])
 
+def suncolor(teff):
+    if teff < 3500:
+        return 'red'
+
+    if (teff >= 3500) and (teff < 5000):
+        return 'orange'
+    
+    if (teff >= 5000) and (teff < 8000):
+        return 'yellow'
+    
+    if (teff >= 8000) and (teff < 15000):
+        return 'white'
+    
+    if teff >= 15000:
+        return 'blue'
+
 
 def circle(phi,r):
     return np.array([r*np.cos(phi), r*np.sin(phi)])
@@ -21,22 +37,29 @@ def animator(a_s,pers,rs,rstar,norbs,es,tstar,system):
     #tstar = tstar * u.K
 
     rsun = 7.e10
+
+    #rstar = rstar/rsun
+
     rstar = rstar/rsun
+
 
     nplanets = len(a_s)
 
     a_plot = np.max(a_s)
 
+
     norma = np.min(a_s)
     normper = np.min(pers)
 
     rearth = 6.37e8
-    normr = rearth
+    rjupiter = 7.05e9
+    normr = rearth/rjupiter
 
     fig, ax = plt.subplots()
     ax.set_aspect("equal")
-    ax.axis([-2*a_plot,2*a_plot,-2*a_plot,2*a_plot])
+    ax.axis([-2*a_plot/norma,2*a_plot/norma,-2*a_plot/norma,2*a_plot/norma])
     sun = ax.plot(0,0, marker="o",markersize = 5*rstar,color=suncolor(tstar)) 
+
 
     if nplanets == 1: 
         
