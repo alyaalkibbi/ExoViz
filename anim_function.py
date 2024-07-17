@@ -7,21 +7,6 @@ def ellipse(phi,a,e):
     b = np.sqrt(1-e**2) * a 
     return np.array([a*np.cos(phi), b*np.sin(phi)])
 
-def suncolor(teff):
-    if teff < 3500:
-        return 'red'
-
-    if teff >= 3500 & teff < 5000:
-        return 'orange'
-    
-    if teff >= 5000 & teff < 8000:
-        return 'yellow'
-    
-    if teff >= 8000 & teff < 15000:
-        return 'white'
-    
-    if teff >= 15000:
-        return 'blue'
 
 def circle(phi,r):
     return np.array([r*np.cos(phi), r*np.sin(phi)])
