@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[76]:
+# In[93]:
 
 
 import matplotlib.pyplot as plt
@@ -12,7 +12,7 @@ from astropy import constants as const
 from collections import Counter
 
 
-# In[90]:
+# In[125]:
 
 
 def query_parameters(system_name):
@@ -35,7 +35,7 @@ def query_parameters(system_name):
 
 
     print("Downloading default_flag=1")
-    where1 = 'where+default_flag=1+and+tran_flag=1+and+upper%28soltype%29+like+%27%25CONF%25%27'
+    where1 = 'where+default_flag=1'
     full1 = NEW_API + 'select+' + columns + '+from+ps+' + where1 + '&format=csv'
     df = pd.read_csv(full1)
     df.to_csv('default_params1.csv')
@@ -54,21 +54,65 @@ def query_parameters(system_name):
         header=0
     ).iloc[:, 1:]
     
-    # find planet
+    # find planetary system
     
     system_parameters = df1.loc[df1['hostname'] == system_name]
     
-    planet_radius = system_parameters['pl_radj'].values # radius
-    orbital_period = system_parameters['pl_orbper'].values #orbital period
-    semi_major_axis = system_parameters['pl_orbsmax'].values # semi major axis
-    planet_mass = system_parameters['pl_bmassj'].values # mass
-    eccentricity = system_parameters['pl_orbeccen'].values # eccentricity
+    # get planetary radii
+    
+    planet_radius = system_parameters['pl_radj'].values
+    
+    planet_radius_array_without_nan = [x for x in planet_radius if str(x) != 'nan']
+    
+    if len(planet_radius_array_without_nan) == 0:
+        return ValueError('No planetary radii available for this system.')
+    
+    # get orbital periods
+    
+    orbital_period = system_parameters['pl_orbper'].values
+    
+    orbital_period_without_nan = [x for x in orbital_period if str(x) != 'nan']
+    
+    if len(orbital_period_without_nan) == 0:
+        return ValueError('No periods available for this system.')
+    
+    # get semi_major axis
+    
+    semi_major_axis = system_parameters['pl_orbsmax'].values
+    
+    semi_major_axis_without_nan = [x for x in semi_major_axis if str(x) != 'nan']
+    
+    if len(semi_major_axis_without_nan) == 0:
+        return ValueError('No semi-major axis available for this system.')
+    
+    # get planetary masses
+    
+    planet_mass = system_parameters['pl_bmassj'].values
+    
+    planet_mass_without_nan = [x for x in planet_mass if str(x) != 'nan']
+    
+    if len(planet_mass_without_nan) == 0:
+        return ValueError('No masses available for this system.')
+    
+    # get eccentricities
+    
+    eccentricity = system_parameters['pl_orbeccen'].values
+    
+    eccentricity_without_nan = [x for x in  eccentricity if str(x) != 'nan']
+    
+    if len(eccentricity_without_nan) == 0:
+        return ValueError('No eccentricities available for this system.')
     
     # find most frequent stellar radius and report it
     
     stellar_radius_array = system_parameters['st_rad'].values
     
-    stellar_radius_max = [num for num, count in Counter(stellar_radius_array).most_common(1)]
+    stellar_radius_array_without_nan = [x for x in stellar_radius_array if str(x) != 'nan']
+    
+    if len(stellar_radius_array_without_nan) == 0:
+        return ValueError('No stellar radius measurement available.')
+    
+    stellar_radius_max = [num for num, count in Counter(stellar_radius_array_without_nan).most_common(1)]
     
     stellar_radius = stellar_radius_max[0]
     
@@ -76,12 +120,17 @@ def query_parameters(system_name):
     
     stellar_temp_array = system_parameters['st_teff'].values # stellar temp array
     
-    stellar_temp = np.bincount(stellar_temp_array.astype(int)).argmax()
+    stellar_temp_array_without_nan = [x for x in stellar_temp_array if str(x) != 'nan']
+    
+    if len(stellar_temp_array_without_nan) == 0:
+        return ValueError('No stellar temperature measurement available.')
+    
+    stellar_temp = [num for num, count in Counter(stellar_temp_array_without_nan).most_common(1)]
     
     return planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity, stellar_radius, stellar_temp
 
 
-# In[92]:
+# In[127]:
 
 
 kelt9b = query_parameters('KELT-9')
