@@ -24,14 +24,12 @@ which automatically installs the following dependencies if not present:
 Example usage
 -------------
 ```
-from parameterquery import query_parameters
-import anim_function
-from anim_function import animator
-from main import main
+import ExoViz.exoanim as exo
 
-# Animate the KELT-9 system
+# Animate K2-138 system
 
-example_planet = main(system = 'KELT-9', norbs = 3, dir = 'C:/Users/username/Downloads/')
+exo.exoanim('K2-138', 4, dir = 'C:/Users/username/Downloads/')
+
 ```
 
 Note to always put `/` at the end of the directory pathway in order to download the animation.
