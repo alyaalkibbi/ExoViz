@@ -136,15 +136,6 @@ def query_parameters(system_name):
     return planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity, stellar_radius, stellar_temp, number_of_planets
 
 
-# In[135]:
-
-
-kelt9b = query_parameters('KELT-9')
-
-kelt9b
-
-
-# In[ ]:
 
 
 
