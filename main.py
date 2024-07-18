@@ -6,19 +6,6 @@ from anim_function import animator
 #example to use query to get planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity,
 # stellar_radius, stellar_temp
 def main(system, norbs, dir=''):
-    """ Calls query and animation function 
-
-    Queries exoplanet database to generate an animation based on the exoplanetary system input 
-
-    Args: 
-        system (string): system to make the animation of 
-        norbs (int): number of orbits desired in animation 
-        dir (string): directory in which to save animation (default current directory)
-
-    Returns: 
-        Saved animation file (.gif)
-        
-    """
 
     if type(system) != str: 
         return ValueError("System name not entered as string")
