@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animation Function &mdash; ExoViz V0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameter query Function" href="parameterquery.html" />
+    <link rel="prev" title="Main Calling Function" href="main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            ExoViz
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="main.html">Main Calling Function</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Animation Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#anim_function.animator"><code class="docutils literal notranslate"><span class="pre">animator()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#anim_function.suncolor"><code class="docutils literal notranslate"><span class="pre">suncolor()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameterquery.html">Parameter query Function</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ExoViz</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Animation Function</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/anim_function.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="animation-function">
+<span id="anim-function"></span><h1>Animation Function<a class="headerlink" href="#animation-function" title="Permalink to this heading"></a></h1>
+<p>Function to make the animation of the planetary system.</p>
+<span class="target" id="module-anim_function"></span><dl class="py function">
+<dt class="sig sig-object py" id="anim_function.animator">
+<span class="sig-prename descclassname"><span class="pre">anim_function.</span></span><span class="sig-name descname"><span class="pre">animator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_s</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rstar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norbs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">es</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tstar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dir</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anim_function.animator" title="Permalink to this definition"></a></dt>
+<dd><p>Animation function</p>
+<p>Generates an animation based on the exoplanetary system input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a_s</strong> (<em>array</em>) – semimajor axes (AU)</p></li>
+<li><p><strong>pers</strong> (<em>array</em>) – periods of planets</p></li>
+<li><p><strong>rs</strong> (<em>array</em>) – planetary radii (R_jup)</p></li>
+<li><p><strong>rstar</strong> (<em>float</em>) – stellar radius (R_sun)</p></li>
+<li><p><strong>norbs</strong> (<em>int</em>) – number of orbits desired in animation</p></li>
+<li><p><strong>es</strong> (<em>array</em>) – eccentricities of planets</p></li>
+<li><p><strong>tstar</strong> (<em>float</em>) – temperature of star (K)</p></li>
+<li><p><strong>system</strong> (<em>string</em>) – system to make the animation of</p></li>
+<li><p><strong>dir</strong> (<em>string</em>) – directory in which to save animation (default current directory)</p></li>
+<li><p><strong>Note</strong> – units are not important, as all quantities will be scaled relative to each other.</p></li>
+<li><p><strong>units</strong> (<em>As long as all values use the same</em>) – </p></li>
+<li><p><strong>works.</strong> (<em>any unit system</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Saved animation file (.gif)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="anim_function.suncolor">
+<span class="sig-prename descclassname"><span class="pre">anim_function.</span></span><span class="sig-name descname"><span class="pre">suncolor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teff</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#anim_function.suncolor" title="Permalink to this definition"></a></dt>
+<dd><p>Sun color selector</p>
+<p>Selects a color for plotting the star based on its temperature</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teff</strong> (<em>float</em>) – stellar temperature (K)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>color in which to plot star</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>color (string)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main.html" class="btn btn-neutral float-left" title="Main Calling Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parameterquery.html" class="btn btn-neutral float-right" title="Parameter query Function" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Alya Al-Kibbi, Kaz Gary, Haniyeh Tajer.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
