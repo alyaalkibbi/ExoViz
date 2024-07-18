@@ -28,7 +28,7 @@ import ExoViz.exoanim as exo
 
 # Animate K2-138 system
 
-exo.exoanim('K2-138', 4, dir = 'C:/Users/username/Downloads/')
+exo.exoanim('K2-138', 4, dir = '')
 ```
 
-Note to always put `/` at the end of the directory pathway in order to download the animation.
+If you wish to save the animation to another directory besides the one you're working in, you can specify the directory path in dir = ''. Note to always put `/` at the end of the directory pathway in order to download the animation.
