@@ -19,7 +19,7 @@ which automatically installs the following dependencies if not present:
 - `pandas`
 - `datetime`
 - `astropy`
-- `Collections`
+- `collections`
 
 Example usage
 -------------
@@ -29,7 +29,6 @@ import ExoViz.exoanim as exo
 # Animate K2-138 system
 
 exo.exoanim('K2-138', 4, dir = 'C:/Users/username/Downloads/')
-
 ```
 
 Note to always put `/` at the end of the directory pathway in order to download the animation.
