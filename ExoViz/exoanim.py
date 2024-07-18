@@ -1,7 +1,7 @@
 from astropy import units as u
-from parameterquery import query_parameters
-import anim_function
-from anim_function import animator
+from ExoViz.parameterquery import query_parameters
+import ExoViz.anim_function
+from ExoViz.anim_function import animator
 
 #example to use query to get planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity,
 # stellar_radius, stellar_temp
