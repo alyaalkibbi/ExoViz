@@ -12,7 +12,7 @@ from astropy import constants as const
 from collections import Counter
 
 
-# In[125]:
+# In[130]:
 
 
 def query_parameters(system_name):
@@ -74,6 +74,10 @@ def query_parameters(system_name):
     # find planetary system
     
     system_parameters = df1.loc[df1['hostname'] == system_name]
+    
+    # return number of planets
+    
+    number_of_planets = system_parameters['sy_pnum'].values
     
     # get planetary radii
     
@@ -144,7 +148,5 @@ def query_parameters(system_name):
     
     stellar_temp = [num for num, count in Counter(stellar_temp_array_without_nan).most_common(1)]
     
-    return planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity, stellar_radius, stellar_temp
-
-
+    return planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity, stellar_radius, stellar_temp, number_of_planets
 
