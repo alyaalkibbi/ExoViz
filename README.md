@@ -1,3 +1,5 @@
+![Logo](https://media.discordapp.net/attachments/1261078446423937065/1263348861930307666/K2-138.gif?ex=669a9190&is=66994010&hm=a534f56aba85ac0a9aff424ff30e484c5df6b6f00bc3c9df7ba7e8534262e897&=&width=1248&height=936)
+
 # ExoViz
 
 [![DOI](https://zenodo.org/badge/829092140.svg)](https://zenodo.org/doi/10.5281/zenodo.12760958)
