@@ -11,6 +11,17 @@ def ellipse(phi,a,e):
 
 #defining a function that takes the temperature of a star and returns a color based on that 
 def suncolor(teff):
+    """ Sun color selector 
+
+    Selects a color for plotting the star based on its temperature 
+
+    Args: 
+        teff (float): stellar temperature (K)
+
+    Returns: 
+        color (string): color in which to plot star 
+        
+    """
     if teff < 3500:
         return 'red'
 
@@ -32,10 +43,27 @@ def circle(phi,r):
 
 #defining the function which creates an animation based on planetary parameters
 def animator(a_s,pers,rs,rstar,norbs,es,tstar,system,dir):
-    """
-    
-    
-    
+    """ Animation function 
+
+    Generates an animation based on the exoplanetary system input 
+
+    Args: 
+        a_s (array): semimajor axes (AU) 
+        pers (array): periods of planets 
+        rs (array): planetary radii (R_jup)
+        rstar (float): stellar radius (R_sun)
+        norbs (int): number of orbits desired in animation 
+        es (array): eccentricities of planets 
+        tstar (float): temperature of star (K)
+        system (string): system to make the animation of 
+        dir (string): directory in which to save animation (default current directory)
+
+        Note: units are not important, as all quantities will be scaled relative to each other. 
+        As long as all values use the same units, any unit system works. 
+
+    Returns: 
+        Saved animation file (.gif)
+        
     """
 
     #finding the number of planets based on the length of input 

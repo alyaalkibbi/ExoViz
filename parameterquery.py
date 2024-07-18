@@ -16,11 +16,28 @@ from collections import Counter
 
 
 def query_parameters(system_name):
+
+    """ Query function 
+
+    Queries NASA Exoplanet archive and obtains system parameters for desired system 
+
+    Args: 
+        system_name (string): system to query parameters for 
+
+    Returns: 
+        planet_radius (array): radii of planets in system 
+        orbital_period (array): orbital periods of planets in system 
+        semi_major_axis (array): semimajor axes of planets in system 
+        planet_mass (array): masses of planets in system
+        eccentricity (array): eccentricities of planets in system 
+        stellar_radius (float): radius of star in system 
+        stellar_temp (float): temperature of star in system
+        number_of_planets (int): number of planets in system 
+        
+    """
     
     # NASA Exoplanet Archive Downloader
     # inspired by https://github.com/ethankruse/exoplots
-
-    """Downloads candidate and confirmed planet tables from NExSci"""
 
 
     NEW_API = 'https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query='
@@ -128,18 +145,6 @@ def query_parameters(system_name):
     stellar_temp = [num for num, count in Counter(stellar_temp_array_without_nan).most_common(1)]
     
     return planet_radius, orbital_period, semi_major_axis, planet_mass, eccentricity, stellar_radius, stellar_temp
-
-
-# In[127]:
-
-
-kelt9b = query_parameters('KELT-9')
-
-kelt9b
-
-
-# In[ ]:
-
 
 
 
